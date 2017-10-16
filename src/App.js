@@ -6,7 +6,7 @@ class App extends Component {
     return (
       <div>
         <head>
-          <meta />
+          <meta charset="utf-8" />
           <title>Tic Tac Toe</title>
         </head>
 
