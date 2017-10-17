@@ -1,14 +1,20 @@
+// Combining these for loops was only negligibly faster, so I opted for legibility.
+// https://jsperf.com/tic-tac-toe-test/1
+
+// For an explanation of the algorithm and how I came up with it, see my blog!
+// https://jenniferlong.io/articles/tic-tac-toe-algorithms.html
+
 export default cells => {
   const result = [];
   const s = Math.sqrt(cells.length);
 
-  //rows
+  // rows
   for (let i = 0; i < s; i++) {
     let row = cells.slice(i * s, (i + 1) * s);
     result.push(row);
   }
 
-  //columns
+  // columns
   for (let i = 0; i < s; i++) {
     let col = [];
     for (let j = 0; j < s; j++) {
@@ -17,14 +23,14 @@ export default cells => {
     result.push(col);
   }
 
-  //diagonalOne
+  // diagonalOne
   let diaOne = [];
   for (let i = 0; i < s; i++) {
     diaOne.push(cells[i * s + i]);
   }
   result.push(diaOne);
 
-  //diagonalTwo
+  // diagonalTwo
   let diaTwo = [];
   for (let i = 0; i < s; i++) {
     diaTwo.push(cells[(i + 1) * s - (i + 1)]);
