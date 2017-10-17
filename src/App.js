@@ -8,14 +8,23 @@ import CellState from "./enums/CellState.js";
 import { times } from "lodash/util";
 import Player from "./enums/Player.js";
 
+const createInitialState = () => ({
+  gameState: GameState.SplashScreen,
+  cells: times(9, () => CellState.Blank),
+  turn: [Player.X, Player.O][Math.round(Math.random())]
+});
+
 class App extends Component {
-  state = {
-    gameState: GameState.SplashScreen,
-    cells: times(9, () => CellState.Blank),
-    turn: [Player.X, Player.O][Math.round(Math.random())]
-  };
+  state = createInitialState();
 
   startPlaying = () => this.setState({ gameState: "GameScreen" });
+
+  resetState = () => this.setState(createInitialState());
+
+  resetAndStart = () => {
+    this.resetState();
+    this.startPlaying();
+  };
 
   cellChosen = i => {
     this.setState(previousState => {
@@ -65,7 +74,10 @@ class App extends Component {
         ) : null}
 
         {this.state.gameState === GameState.GameOverScreen ? (
-          <GameOverScreen />
+          <GameOverScreen
+            resetState={this.resetState}
+            resetAndStart={this.resetAndStart}
+          />
         ) : null}
       </div>
     );
