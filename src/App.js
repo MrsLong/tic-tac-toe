@@ -17,6 +17,36 @@ class App extends Component {
 
   startPlaying = () => this.setState({ gameState: "GameScreen" });
 
+  cellChosen = i => {
+    this.setState(previousState => {
+      const oldCells = previousState.cells;
+      const chosenCell = oldCells[i];
+      if (chosenCell !== CellState.Blank) {
+        return previousState;
+      }
+      const currentTurn = previousState.turn;
+      let newCellState;
+      switch (currentTurn) {
+        case Player.X:
+          newCellState = CellState.X;
+          break;
+        case Player.O:
+          newCellState = CellState.O;
+          break;
+        default:
+          newCellState = CellState.Blank;
+          break;
+      }
+      const newCells = oldCells.slice();
+      newCells[i] = newCellState;
+      const nextTurn = currentTurn === Player.X ? Player.O : Player.X;
+      return {
+        turn: nextTurn,
+        cells: newCells
+      };
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -27,7 +57,11 @@ class App extends Component {
         ) : null}
 
         {this.state.gameState === GameState.GameScreen ? (
-          <GameScreen cells={this.state.cells} turn={this.state.turn} />
+          <GameScreen
+            cells={this.state.cells}
+            turn={this.state.turn}
+            cellChosen={this.cellChosen}
+          />
         ) : null}
 
         {this.state.gameState === GameState.GameOverScreen ? (

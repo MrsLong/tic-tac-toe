@@ -6,7 +6,11 @@ const GameScreen = props => (
   <div>
     <div className="board">
       {props.cells.map((cellState, i) => (
-        <button key={i} className={`cell cell${i}`}>
+        <button
+          key={i}
+          className={`cell cell${i}`}
+          onClick={() => props.cellChosen(i)}
+        >
           {cellState}
         </button>
       ))}
