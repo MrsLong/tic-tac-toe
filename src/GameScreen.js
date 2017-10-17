@@ -1,5 +1,6 @@
 import React from "react";
 import Player from "./enums/Player.js";
+import PlayerTurn from "./GameScreen/PlayerTurn.js";
 
 const GameScreen = props => (
   <div>
@@ -10,20 +11,8 @@ const GameScreen = props => (
         </button>
       ))}
     </div>
-    <p
-      className={`player playerX ${props.turn === Player.X
-        ? "active-player"
-        : null}`}
-    >
-      X
-    </p>
-    <p
-      className={`player playerO ${props.turn === Player.O
-        ? "active-player"
-        : null}`}
-    >
-      O
-    </p>
+    <PlayerTurn player={Player.X} turn={props.turn} />
+    <PlayerTurn player={Player.O} turn={props.turn} />
   </div>
 );
 
