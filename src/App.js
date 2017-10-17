@@ -3,10 +3,11 @@ import "./App.css";
 import GameScreen from "./GameScreen.js";
 import SplashScreen from "./SplashScreen.js";
 import GameOverScreen from "./GameOverScreen.js";
+import GameState from "./enums/GameState.js";
 
 class App extends Component {
   state = {
-    gameState: "SplashScreen" // SplashScreen, GameScreen, GameOverScreen
+    gameState: GameState.SplashScreen
   };
 
   startPlaying = () => this.setState({ gameState: "GameScreen" });
@@ -16,13 +17,15 @@ class App extends Component {
       <div className="container">
         <h1>Tic Tac Toe</h1>
 
-        {this.state.gameState === "SplashScreen" ? (
+        {this.state.gameState === GameState.SplashScreen ? (
           <SplashScreen startPlaying={this.startPlaying} />
         ) : null}
 
-        {this.state.gameState === "GameScreen" ? <GameScreen /> : null}
+        {this.state.gameState === GameState.GameScreen ? <GameScreen /> : null}
 
-        {this.state.gameState === "GameOverScreen" ? <GameOverScreen /> : null}
+        {this.state.gameState === GameState.GameOverScreen ? (
+          <GameOverScreen />
+        ) : null}
       </div>
     );
   }
