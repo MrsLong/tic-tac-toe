@@ -6,11 +6,13 @@ import GameOverScreen from "./GameOverScreen.js";
 import GameState from "./enums/GameState.js";
 import CellState from "./enums/CellState.js";
 import { times } from "lodash/util";
+import Player from "./enums/Player.js";
 
 class App extends Component {
   state = {
     gameState: GameState.SplashScreen,
-    cells: times(9, () => CellState.Blank)
+    cells: times(9, () => CellState.Blank),
+    turn: [Player.X, Player.O][Math.round(Math.random())]
   };
 
   startPlaying = () => this.setState({ gameState: "GameScreen" });
@@ -25,7 +27,7 @@ class App extends Component {
         ) : null}
 
         {this.state.gameState === GameState.GameScreen ? (
-          <GameScreen cells={this.state.cells} />
+          <GameScreen cells={this.state.cells} turn={this.state.turn} />
         ) : null}
 
         {this.state.gameState === GameState.GameOverScreen ? (

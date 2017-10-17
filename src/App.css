@@ -20,6 +20,10 @@ body {
   margin: 0 auto;
 }
 
+.active-player {
+  font-weight: bold;
+}
+
 .playerX {
   display: inline-block;
 }
