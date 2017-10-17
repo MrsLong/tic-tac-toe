@@ -4,10 +4,13 @@ import GameScreen from "./GameScreen.js";
 import SplashScreen from "./SplashScreen.js";
 import GameOverScreen from "./GameOverScreen.js";
 import GameState from "./enums/GameState.js";
+import CellState from "./enums/CellState.js";
+import { times } from "lodash/util";
 
 class App extends Component {
   state = {
-    gameState: GameState.SplashScreen
+    gameState: GameState.SplashScreen,
+    cells: times(9, () => CellState.Blank)
   };
 
   startPlaying = () => this.setState({ gameState: "GameScreen" });
@@ -21,7 +24,9 @@ class App extends Component {
           <SplashScreen startPlaying={this.startPlaying} />
         ) : null}
 
-        {this.state.gameState === GameState.GameScreen ? <GameScreen /> : null}
+        {this.state.gameState === GameState.GameScreen ? (
+          <GameScreen cells={this.state.cells} />
+        ) : null}
 
         {this.state.gameState === GameState.GameOverScreen ? (
           <GameOverScreen />
