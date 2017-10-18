@@ -1,3 +1,6 @@
+// For a deeper look into the thought processs behind this function, check out:
+// https://github.com/MrsLong/tic-tac-toe#testing-the-lines
+
 import cellsToLines from "./cellsToLines.js";
 import CellState from "../enums/CellState.js";
 import Player from "../enums/Player.js";

@@ -2,7 +2,7 @@
 // https://jsperf.com/tic-tac-toe-test/1
 
 // For an explanation of the algorithm and how I came up with it, see my blog!
-// https://jenniferlong.io/articles/tic-tac-toe-algorithms.html
+// https://github.com/MrsLong/tic-tac-toe#turning-a-flat-array-into-a-matrix
 
 export default cells => {
   const result = [];
