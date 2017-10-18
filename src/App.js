@@ -53,7 +53,8 @@ class App extends Component {
       try {
         findWinner(newCells);
         return {
-          gameState: GameState.GameOverScreen
+          gameState: GameState.GameOverScreen,
+          cells: newCells
         };
       } catch (err) {
         if (err instanceof GameNotOverError) {
@@ -89,6 +90,7 @@ class App extends Component {
           <GameOverScreen
             resetState={this.resetState}
             resetAndStart={this.resetAndStart}
+            cells={this.state.cells}
           />
         ) : null}
       </div>
