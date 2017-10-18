@@ -8,10 +8,14 @@ const GameOverScreen = props => {
     message = "The game was a draw.";
   }
   return (
-    <div>
+    <div className="game-over-screen">
       <p>{message}</p>
-      <button onClick={props.resetState}>Quit</button>
-      <button onClick={props.resetAndStart}>Restart</button>
+      <button className="button" onClick={props.resetState}>
+        Quit
+      </button>
+      <button className="button" onClick={props.resetAndStart}>
+        Restart
+      </button>
     </div>
   );
 };

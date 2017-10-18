@@ -3,12 +3,12 @@ import Player from "./enums/Player.js";
 import PlayerTurn from "./GameScreen/PlayerTurn.js";
 
 const GameScreen = props => (
-  <div>
-    <div className="board">
+  <div className="game-screen">
+    <div className="game-screen__game-board game-board">
       {props.cells.map((cellState, i) => (
         <button
           key={i}
-          className={`cell cell${i}`}
+          className={`cell cell${i} game-board__button`}
           onClick={() => props.cellChosen(i)}
         >
           {cellState}

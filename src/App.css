@@ -3,24 +3,34 @@ body {
   margin: auto;
 }
 
+.logo {
+  font-family: "Sriracha", cursive;
+  font-size: 48px;
+}
+
+.rules {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+}
+
 .container {
   width: 90%;
   margin: auto;
 }
 
-.board {
+.game-board {
   display: grid;
   grid-gap: 2%;
   grid-template-columns: repeat(3, 32%);
   grid-template-rows: repeat(3, 32%);
   width: 90vmin;
   height: 90vmin;
-  background: red;
+  background: #37123c;
   box-sizing: border-box;
   margin: 0 auto;
 }
 
-.active-player {
+.game-screen__active-player {
   font-weight: bold;
 }
 
@@ -30,4 +40,10 @@ body {
 
 .playerO {
   display: inline-block;
+}
+
+@media (min-width: 371px) {
+  .logo {
+    font-size: 64px;
+  }
 }
