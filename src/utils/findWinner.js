@@ -2,7 +2,9 @@ import cellsToLines from "./cellsToLines.js";
 import CellState from "../enums/CellState.js";
 import Player from "../enums/Player.js";
 
-export class GameNotOverError extends Error {}
+// Can't extend Error because Babel doesn't let you do instanceof checks.
+// https://stackoverflow.com/q/33870684
+export class GameNotOverError {}
 
 export default cells => {
   const lines = cellsToLines(cells);

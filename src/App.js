@@ -7,6 +7,7 @@ import GameState from "./enums/GameState.js";
 import CellState from "./enums/CellState.js";
 import { times } from "lodash/util";
 import Player from "./enums/Player.js";
+import findWinner, { GameNotOverError } from "./utils/findWinner.js";
 
 const createInitialState = () => ({
   gameState: GameState.SplashScreen,
@@ -48,11 +49,22 @@ class App extends Component {
       }
       const newCells = oldCells.slice();
       newCells[i] = newCellState;
-      const nextTurn = currentTurn === Player.X ? Player.O : Player.X;
-      return {
-        turn: nextTurn,
-        cells: newCells
-      };
+
+      try {
+        findWinner(newCells);
+        return {
+          gameState: GameState.GameOverScreen
+        };
+      } catch (err) {
+        if (err instanceof GameNotOverError) {
+          const nextTurn = currentTurn === Player.X ? Player.O : Player.X;
+          return {
+            turn: nextTurn,
+            cells: newCells
+          };
+        }
+        throw err;
+      }
     });
   };
 
