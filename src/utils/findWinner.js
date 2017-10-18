@@ -6,12 +6,14 @@ export class GameNotOverError extends Error {}
 
 export default cells => {
   const lines = cellsToLines(cells);
+  const isAnyLine = state =>
+    lines.some(line => line.every(cellState => cellState === state));
 
-  if (lines.some(line => line.every(cellState => cellState === CellState.X))) {
+  if (isAnyLine(CellState.X)) {
     return Player.X;
   }
 
-  if (lines.some(line => line.every(cellState => cellState === CellState.O))) {
+  if (isAnyLine(CellState.O)) {
     return Player.O;
   }
 
