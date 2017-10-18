@@ -7,7 +7,7 @@ const SplashScreen = props => (
       turns placing their symbol until one player has three in a row, or all
       nine squares have been filled.
     </p>
-    <button className="button" onClick={props.startPlaying}>
+    <button className="button button--start" onClick={props.startPlaying}>
       Start
     </button>
   </div>

@@ -1,21 +1,75 @@
+/* Reset buttons */
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/* Remove excess padding and border in Firefox 4+ */
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Begin styling */
+
 body {
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .logo {
   font-family: "Sriracha", cursive;
   font-size: 48px;
+  color: #37123c;
+  margin: 10px auto;
 }
 
-.rules {
+.rules,
+.game-over-screen__message {
   font-family: "Roboto", sans-serif;
   font-size: 24px;
+  color: #37123c;
+}
+
+.button {
+  border: solid #37123c 1px;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #37123c;
+  font-family: "Roboto", sans-serif;
+}
+
+.button--restart {
+  margin-right: 10px;
+}
+
+.button--quit {
+  margin-left: 10px;
 }
 
 .container {
   width: 90%;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .game-board {
@@ -27,23 +81,44 @@ body {
   height: 90vmin;
   background: #37123c;
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 10px auto;
+}
+
+.game-board__button {
+  background: white;
+  outline: none;
 }
 
 .game-screen__active-player {
   font-weight: bold;
 }
 
-.playerX {
-  display: inline-block;
+.game-screen__player-turn {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.playerO {
-  display: inline-block;
+.player {
+  flex: 1;
+  font-family: "Fredoka One", sans-serif;
+  font-size: 48px;
+  margin: auto;
+}
+
+.player--X {
+  color: #e01a4f;
+}
+
+.player--O {
+  color: #0075a2;
 }
 
 @media (min-width: 371px) {
-  .logo {
+  .logo,
+  .player {
     font-size: 64px;
   }
 }
+
+@media (orientation: landscape and);

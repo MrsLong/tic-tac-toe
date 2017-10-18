@@ -11,12 +11,14 @@ const GameScreen = props => (
           className={`cell cell${i} game-board__button`}
           onClick={() => props.cellChosen(i)}
         >
-          {cellState}
+          <p className={`player player--${cellState}`}>{cellState}</p>
         </button>
       ))}
     </div>
-    <PlayerTurn player={Player.X} turn={props.turn} />
-    <PlayerTurn player={Player.O} turn={props.turn} />
+    <div className="game-screen__player-turn">
+      <PlayerTurn player={Player.X} turn={props.turn} />
+      <PlayerTurn player={Player.O} turn={props.turn} />
+    </div>
   </div>
 );
 

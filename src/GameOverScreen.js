@@ -9,12 +9,12 @@ const GameOverScreen = props => {
   }
   return (
     <div className="game-over-screen">
-      <p>{message}</p>
-      <button className="button" onClick={props.resetState}>
-        Quit
-      </button>
-      <button className="button" onClick={props.resetAndStart}>
+      <p className="game-over-screen__message">{message}</p>
+      <button className="button button--restart" onClick={props.resetAndStart}>
         Restart
+      </button>
+      <button className="button button--quit" onClick={props.resetState}>
+        Quit
       </button>
     </div>
   );
