@@ -49,7 +49,7 @@ body {
 
 @media (orientation: landscape) {
   .logo {
-    font-size: 15vh;
+    font-size: 11vh;
   }
 }
 
@@ -61,12 +61,13 @@ body {
 }
 
 .button {
-  border: solid #37123c 1px;
   padding: 5px 10px;
   font-size: 16px;
-  color: #37123c;
+  color: white;
+  background-color: #0075a2;
   font-family: "Roboto", sans-serif;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .button--restart {
@@ -75,6 +76,9 @@ body {
 
 .button--quit {
   margin-left: 10px;
+  border: 1px solid #0075a2;
+  color: #0075a2;
+  background-color: white;
 }
 
 .container {
@@ -105,8 +109,8 @@ body {
 
 @media (orientation: landscape) {
   .game-board {
-    width: 60vh;
-    height: 60vh;
+    width: 63vh;
+    height: 63vh;
   }
 }
 
