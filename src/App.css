@@ -57,6 +57,8 @@ body {
 .game-over-screen__message {
   font-family: "Roboto", sans-serif;
   font-size: 24px;
+  max-width: 30em;
+  margin: 30px auto;
   color: #37123c;
 }
 
