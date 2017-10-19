@@ -1,4 +1,8 @@
-/* Reset buttons */
+/* Reset */
+
+* {
+  box-sizing: border-box;
+}
 
 button {
   border: none;
@@ -34,14 +38,19 @@ button::-moz-focus-inner {
 
 body {
   text-align: center;
-  margin: 0 auto;
 }
 
 .logo {
   font-family: "Sriracha", cursive;
-  font-size: 15vmin;
+  font-size: 11vw;
   color: #37123c;
   margin: 10px auto;
+}
+
+@media (orientation: landscape) {
+  .logo {
+    font-size: 15vh;
+  }
 }
 
 .rules,
@@ -57,6 +66,7 @@ body {
   font-size: 16px;
   color: #37123c;
   font-family: "Roboto", sans-serif;
+  border-radius: 3px;
 }
 
 .button--restart {
@@ -77,41 +87,79 @@ body {
   grid-gap: 2%;
   grid-template-columns: repeat(3, 32%);
   grid-template-rows: repeat(3, 32%);
-  width: 90vmin;
-  height: 90vmin;
+  width: 90vw;
+  height: 90vw;
   background: #37123c;
   box-sizing: border-box;
-  margin: 10px auto;
+  margin: 6vh auto;
+  font-family: "Fredoka One", sans-serif;
+}
+
+@media (min-aspect-ratio: 5/7) {
+  .game-board {
+    width: 60vw;
+    height: 60vw;
+    margin: 2vh auto;
+  }
+}
+
+@media (orientation: landscape) {
+  .game-board {
+    width: 60vh;
+    height: 60vh;
+  }
 }
 
 .game-board__button {
   background: white;
   outline: none;
+  font-size: 15vmin;
+  margin: -1px; /* Work around rounding errors */
 }
 
-.game-screen__active-player {
-  transform: scale(1.35);
+.game-board__button--X {
+  color: #e01a4f;
 }
 
-.game-screen__player-turn {
+.game-board__button--O {
+  color: #0075a2;
+}
+
+.player-turns {
   display: flex;
   align-items: center;
   margin: 0 auto;
 }
 
-.player {
+.player-turns__player {
   flex: 1;
   font-family: "Fredoka One", sans-serif;
-  font-size: 20vmin;
+  font-size: 15vw;
   margin: auto;
 }
 
-.player--X {
+.player-turns__player--active {
+  font-size: 20vw;
+}
+
+@media (orientation: landscape) {
+  .player-turns__player {
+    font-size: 10vh;
+  }
+
+  .player-turns__player--active {
+    font-size: 13.5vh;
+  }
+}
+
+.player-turns__player--X {
   color: #e01a4f;
+  text-align: right;
+  padding-right: 10vmin;
 }
 
-.player--O {
+.player-turns__player--O {
   color: #0075a2;
+  text-align: left;
+  padding-left: 10vmin;
 }
-
-@media (orientation: landscape and);

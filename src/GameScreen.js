@@ -8,14 +8,14 @@ const GameScreen = props => (
       {props.cells.map((cellState, i) => (
         <button
           key={i}
-          className={`cell cell${i} game-board__button`}
+          className={`game-board__button game-board__button--${cellState}`}
           onClick={() => props.cellChosen(i)}
         >
-          <p className={`player player--${cellState}`}>{cellState}</p>
+          {cellState}
         </button>
       ))}
     </div>
-    <div className="game-screen__player-turn">
+    <div className="game-screen__player-turns player-turns">
       <PlayerTurn player={Player.X} turn={props.turn} />
       <PlayerTurn player={Player.O} turn={props.turn} />
     </div>

@@ -1,13 +1,14 @@
 import React from "react";
 
 const PlayerTurn = props => (
-  <p
-    className={`player player--${props.player} ${props.turn === props.player
-      ? "game-screen__active-player"
+  <div
+    className={`player-turns__player player-turns__player--${props.player} ${props.turn ===
+    props.player
+      ? "player-turns__player--active"
       : null}`}
   >
     {props.player}
-  </p>
+  </div>
 );
 
 export default PlayerTurn;
